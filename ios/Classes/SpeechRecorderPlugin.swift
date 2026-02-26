@@ -35,9 +35,9 @@ import AVFoundation
         }
         
         let utterance = AVSpeechUtterance(string: text)
-        utterance.rate = (args["rate"] as? Double) ?? 0.5
-        utterance.pitchMultiplier = (args["pitch"] as? Double) ?? 1.0
-        utterance.volume = (args["volume"] as? Float) ?? 0.8
+        utterance.rate = Float((args["rate"] as? Double) ?? 0.5)
+        utterance.pitchMultiplier = Float((args["pitch"] as? Double) ?? 1.0)
+        utterance.volume = Float((args["volume"] as? Float) ?? 0.8)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         
         ttsSynthesizer.speak(utterance)
