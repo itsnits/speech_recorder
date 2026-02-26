@@ -2,8 +2,8 @@ import Flutter
 import UIKit
 import AVFoundation
 
-@objc class SpeechRecorderPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate {
-    static func register(with registrar: FlutterPluginRegistrar) {
+@objc public class SpeechRecorderPlugin: NSObject, FlutterPlugin, AVAudioRecorderDelegate {
+    public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "speech_recorder", binaryMessenger: registrar.messenger())
         let instance = SpeechRecorderPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
@@ -113,7 +113,7 @@ import AVFoundation
         }
     }
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         print("Speech recording finished: \(flag)")
     }
 }
